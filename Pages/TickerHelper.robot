@@ -19,7 +19,7 @@ Send request
 Check response structure
     [Arguments]         ${reponse}
     ${dictionary}=      Set variable    ${reponse.json()}
-    ${keys}=            Get Dictionary Keys         ${reponse.json()}
+    ${keys}=            Get Dictionary Keys         ${dictionary}
     ${length}=          Get Length      ${keys}
     ${count}=           Convert to string   ${length}
     Should be equal     ${count}   8
