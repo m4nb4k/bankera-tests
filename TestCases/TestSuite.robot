@@ -10,13 +10,13 @@ Resource    TestData.robot
 *** Test Cases ***
 Check if currency rate change was positive
     [Setup]     Setup
-    Enter referrence currency       Bitcoin
-    Currency change was positive    Bitcoin
+    Enter referrence currency       ${CURRENCY}
+    Check if currency change was positive    ${CURRENCY}
     [Teardown]  Close Browser
 
 Currency ticker test
-    ${reponse}=                 Send request    ${FIRST_CURRENCY}   ${SECOND_CURRENCY}
-    Check response structure    ${reponse}
-    Check status code           ${reponse}
-    Check response body         ${reponse}
-    Check response headers      ${reponse}
+    ${reponse}=     Send request    ${FIRST_CURRENCY}   ${SECOND_CURRENCY}
+    Check if response structure is correct    ${reponse}
+    Check if status code is correct           ${reponse}
+    Check if response body is correct         ${reponse}
+    Check if response headers is correct      ${reponse}
